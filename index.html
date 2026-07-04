@@ -763,8 +763,8 @@ function buildEpub(){
       const ord=shuffle([0,1,2,3]);
       const letter='ABCD'[ord.indexOf(x.q.a)];
       const opts=ord.map((oi,k)=>'ABCD'[k]+'．'+fix(x.q.c[oi])).join('<br/>');
-      body+='<div class="q"><p><b>'+(n+1)+'．</b>'+fix(x.q.q)+'</p><p>'+opts+'</p><p class="a"><a epub:type="noteref" href="#n'+x.i+'">▶ 答案・解說</a></p></div>';
-      notes+='<aside id="n'+x.i+'" epub:type="footnote"><p><b>'+(n+1)+'．正解：'+letter+'．'+fix(x.q.c[x.q.a])+'</b><br/>'+fix(x.q.e)+'</p></aside>';
+      body+='<div class="q"><p><b>'+(n+1)+'．</b>'+fix(x.q.q)+'</p><p>'+opts+'</p><p class="a" id="r'+x.i+'"><a epub:type="noteref" href="#n'+x.i+'">▶ 答案・解說</a></p></div>';
+      notes+='<aside id="n'+x.i+'" epub:type="footnote"><p><b>'+(n+1)+'．正解：'+letter+'．'+fix(x.q.c[x.q.a])+'</b><br/>'+fix(x.q.e)+'　<a href="#r'+x.i+'">↩ 返回第'+(n+1)+'題</a></p></aside>';
     });
     body+='<h2>解答・解説一覧</h2>'+notes;
     chapters.push({href:'c'+ci+'.xhtml',title:cat});
